@@ -10,7 +10,8 @@ import MultipeerKit
 
 protocol MPCManagerDelegate {
     func didReceiveMessage(message: MessagePayload)
-    
+    func didAddedPeer(peer: Peer)
+    func didRemovedPeer(peer: Peer)
 }
 
 class MPCManager: NSObject {
@@ -28,7 +29,7 @@ class MPCManager: NSObject {
             
         }
         
-//        t.peerAdded = 
+//        t.peerAdded =
 //        t.peerRemoved =
         return t
     }()
