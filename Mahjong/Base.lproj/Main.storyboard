@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EL2-E2-0jD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EL2-E2-0jD">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +12,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mahjong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xjl-gT-EXH"/>
+                        <viewControllerLayoutGuide type="bottom" id="MEK-SY-dGz"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +36,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstItem="59C-ep-a06" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="E1L-rG-P1h"/>
@@ -46,17 +48,35 @@
             </objects>
             <point key="canvasLocation" x="762.72321428571422" y="69.565217391304358"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Room View Controller-->
         <scene sceneID="N1w-V1-Aeh">
             <objects>
-                <viewController id="gUd-Le-CK1" sceneMemberID="viewController">
+                <viewController id="gUd-Le-CK1" customClass="CreateRoomViewController" customModule="Mahjong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UuM-D7-6qJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="lCP-WM-WmJ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RYe-tc-pCM">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="kVw-e9-wlk"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnD-io-iP1" customClass="EasyRadarView" customModule="Mahjong" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="896" height="349"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JnD-io-iP1" firstAttribute="leading" secondItem="RYe-tc-pCM" secondAttribute="leading" id="905-T1-Hbs"/>
+                            <constraint firstItem="lCP-WM-WmJ" firstAttribute="top" secondItem="JnD-io-iP1" secondAttribute="bottom" id="LuG-j0-gCa"/>
+                            <constraint firstAttribute="trailing" secondItem="JnD-io-iP1" secondAttribute="trailing" id="VhY-ip-60o"/>
+                            <constraint firstItem="JnD-io-iP1" firstAttribute="top" secondItem="UuM-D7-6qJ" secondAttribute="bottom" id="tB4-HV-Hri"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7vY-o8-LlX"/>
+                    <connections>
+                        <outlet property="radarView" destination="JnD-io-iP1" id="gG2-S0-s3k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqf-A4-Mrc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

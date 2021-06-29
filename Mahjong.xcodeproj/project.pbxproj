@@ -16,6 +16,13 @@
 		73BB748E2689BF7F00F059E8 /* MahjongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB748D2689BF7F00F059E8 /* MahjongTests.swift */; };
 		73BB74992689BF7F00F059E8 /* MahjongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB74982689BF7F00F059E8 /* MahjongUITests.swift */; };
 		73BB74AB2689C03500F059E8 /* MultipeerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB74AA2689C03500F059E8 /* MultipeerKit */; };
+		73DE104E268AC0C700DBBDE4 /* EasyRadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE104D268AC0C700DBBDE4 /* EasyRadarView.swift */; };
+		73DE1050268AC8E400DBBDE4 /* EasyRadarPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE104F268AC8E400DBBDE4 /* EasyRadarPointView.swift */; };
+		73DE1052268AC91000DBBDE4 /* EasyRadarIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE1051268AC91000DBBDE4 /* EasyRadarIndicatorView.swift */; };
+		73DE1054268AC9B700DBBDE4 /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE1053268AC9B700DBBDE4 /* CreateRoomViewController.swift */; };
+		73DE105A268B0E6D00DBBDE4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE1059268B0E6D00DBBDE4 /* User.swift */; };
+		73DE105C268B226C00DBBDE4 /* MessagePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE105B268B226C00DBBDE4 /* MessagePayload.swift */; };
+		73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE105F268B235200DBBDE4 /* MPCManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,13 @@
 		73BB74942689BF7F00F059E8 /* MahjongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MahjongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73BB74982689BF7F00F059E8 /* MahjongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MahjongUITests.swift; sourceTree = "<group>"; };
 		73BB749A2689BF7F00F059E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73DE104D268AC0C700DBBDE4 /* EasyRadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRadarView.swift; sourceTree = "<group>"; };
+		73DE104F268AC8E400DBBDE4 /* EasyRadarPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRadarPointView.swift; sourceTree = "<group>"; };
+		73DE1051268AC91000DBBDE4 /* EasyRadarIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRadarIndicatorView.swift; sourceTree = "<group>"; };
+		73DE1053268AC9B700DBBDE4 /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
+		73DE1059268B0E6D00DBBDE4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73DE105B268B226C00DBBDE4 /* MessagePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePayload.swift; sourceTree = "<group>"; };
+		73DE105F268B235200DBBDE4 /* MPCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +115,13 @@
 		73BB74752689BF7C00F059E8 /* Mahjong */ = {
 			isa = PBXGroup;
 			children = (
+				73DE105E268B232A00DBBDE4 /* MPC */,
+				73DE1058268B0E4D00DBBDE4 /* Models */,
 				73DE104C268ABBBA00DBBDE4 /* RadarView */,
 				73BB74762689BF7C00F059E8 /* AppDelegate.swift */,
 				73BB74782689BF7C00F059E8 /* SceneDelegate.swift */,
 				73BB747A2689BF7C00F059E8 /* ViewController.swift */,
+				73DE1053268AC9B700DBBDE4 /* CreateRoomViewController.swift */,
 				73BB747C2689BF7C00F059E8 /* Main.storyboard */,
 				73BB747F2689BF7F00F059E8 /* Assets.xcassets */,
 				73BB74812689BF7F00F059E8 /* LaunchScreen.storyboard */,
@@ -134,8 +151,28 @@
 		73DE104C268ABBBA00DBBDE4 /* RadarView */ = {
 			isa = PBXGroup;
 			children = (
+				73DE104D268AC0C700DBBDE4 /* EasyRadarView.swift */,
+				73DE104F268AC8E400DBBDE4 /* EasyRadarPointView.swift */,
+				73DE1051268AC91000DBBDE4 /* EasyRadarIndicatorView.swift */,
 			);
 			path = RadarView;
+			sourceTree = "<group>";
+		};
+		73DE1058268B0E4D00DBBDE4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				73DE1059268B0E6D00DBBDE4 /* User.swift */,
+				73DE105B268B226C00DBBDE4 /* MessagePayload.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		73DE105E268B232A00DBBDE4 /* MPC */ = {
+			isa = PBXGroup;
+			children = (
+				73DE105F268B235200DBBDE4 /* MPCManager.swift */,
+			);
+			path = MPC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,8 +312,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				73BB747B2689BF7C00F059E8 /* ViewController.swift in Sources */,
+				73DE1052268AC91000DBBDE4 /* EasyRadarIndicatorView.swift in Sources */,
+				73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */,
+				73DE104E268AC0C700DBBDE4 /* EasyRadarView.swift in Sources */,
+				73DE1054268AC9B700DBBDE4 /* CreateRoomViewController.swift in Sources */,
+				73DE105A268B0E6D00DBBDE4 /* User.swift in Sources */,
 				73BB74772689BF7C00F059E8 /* AppDelegate.swift in Sources */,
 				73BB74792689BF7C00F059E8 /* SceneDelegate.swift in Sources */,
+				73DE105C268B226C00DBBDE4 /* MessagePayload.swift in Sources */,
+				73DE1050268AC8E400DBBDE4 /* EasyRadarPointView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
