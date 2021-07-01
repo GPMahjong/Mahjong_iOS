@@ -23,6 +23,7 @@
 		73DE105A268B0E6D00DBBDE4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE1059268B0E6D00DBBDE4 /* User.swift */; };
 		73DE105C268B226C00DBBDE4 /* MessagePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE105B268B226C00DBBDE4 /* MessagePayload.swift */; };
 		73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE105F268B235200DBBDE4 /* MPCManager.swift */; };
+		93BCCCFB268DF799006EC6B8 /* CreateRoomPlaceholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCFA268DF799006EC6B8 /* CreateRoomPlaceholdView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		73DE1059268B0E6D00DBBDE4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		73DE105B268B226C00DBBDE4 /* MessagePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePayload.swift; sourceTree = "<group>"; };
 		73DE105F268B235200DBBDE4 /* MPCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
+		93BCCCFA268DF799006EC6B8 /* CreateRoomPlaceholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomPlaceholdView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +117,12 @@
 		73BB74752689BF7C00F059E8 /* Mahjong */ = {
 			isa = PBXGroup;
 			children = (
+				93BCCCF9268DF5F7006EC6B8 /* CreateRooms */,
 				73DE105E268B232A00DBBDE4 /* MPC */,
 				73DE1058268B0E4D00DBBDE4 /* Models */,
-				73DE104C268ABBBA00DBBDE4 /* RadarView */,
 				73BB74762689BF7C00F059E8 /* AppDelegate.swift */,
 				73BB74782689BF7C00F059E8 /* SceneDelegate.swift */,
 				73BB747A2689BF7C00F059E8 /* ViewController.swift */,
-				73DE1053268AC9B700DBBDE4 /* CreateRoomViewController.swift */,
 				73BB747C2689BF7C00F059E8 /* Main.storyboard */,
 				73BB747F2689BF7F00F059E8 /* Assets.xcassets */,
 				73BB74812689BF7F00F059E8 /* LaunchScreen.storyboard */,
@@ -173,6 +174,16 @@
 				73DE105F268B235200DBBDE4 /* MPCManager.swift */,
 			);
 			path = MPC;
+			sourceTree = "<group>";
+		};
+		93BCCCF9268DF5F7006EC6B8 /* CreateRooms */ = {
+			isa = PBXGroup;
+			children = (
+				73DE104C268ABBBA00DBBDE4 /* RadarView */,
+				73DE1053268AC9B700DBBDE4 /* CreateRoomViewController.swift */,
+				93BCCCFA268DF799006EC6B8 /* CreateRoomPlaceholdView.swift */,
+			);
+			path = CreateRooms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 				73DE1052268AC91000DBBDE4 /* EasyRadarIndicatorView.swift in Sources */,
 				73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */,
 				73DE104E268AC0C700DBBDE4 /* EasyRadarView.swift in Sources */,
+				93BCCCFB268DF799006EC6B8 /* CreateRoomPlaceholdView.swift in Sources */,
 				73DE1054268AC9B700DBBDE4 /* CreateRoomViewController.swift in Sources */,
 				73DE105A268B0E6D00DBBDE4 /* User.swift in Sources */,
 				73BB74772689BF7C00F059E8 /* AppDelegate.swift in Sources */,

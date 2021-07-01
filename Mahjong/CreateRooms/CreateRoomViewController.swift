@@ -9,9 +9,12 @@ import UIKit
 import MultipeerKit
 
 class CreateRoomViewController: UIViewController {
-
-    @IBOutlet weak var findButton: UIButton!
+    
     @IBOutlet weak var radarView: EasyRadarView!
+    @IBOutlet weak var firstManView: CreateRoomPlaceholdView!
+    @IBOutlet weak var secondManView: CreateRoomPlaceholdView!
+    @IBOutlet weak var thirdManView: CreateRoomPlaceholdView!
+    @IBOutlet weak var fouthManView: CreateRoomPlaceholdView!
     
     let connectManager = MPCManager()
     var selectedUsers: [User] = []
@@ -28,7 +31,9 @@ class CreateRoomViewController: UIViewController {
         super.viewDidLoad()
 
         setupRadarView()
+        radarView.scan()
         connectManager.delegate = self
+        didAdded(user: User())
     }
     
     private func setupRadarView() {
@@ -61,28 +66,14 @@ class CreateRoomViewController: UIViewController {
             selectedUsers.append(user)
         }
     }
-
-    @IBAction func didClickOnFindButton(_ sender: UIButton) {
-        connectManager.resume()
-        radarView.scan()
-    }
     
+    @IBAction func didClickOnCreateRoomButton(_ sender: Any) {
+        
+    }
 }
 
 //MARK: - MPCManagerDelegate
 extension CreateRoomViewController: ConnectManagerDelegate {
-
-    func didConnected() {
-        
-    }
-    
-    func didDisconnected() {
-        
-    }
-    
-    func didReceive(message: MessagePayload) {
-        
-    }
     
     func didAdded(user: User) {
         radarView.addPointView(user)
@@ -91,4 +82,11 @@ extension CreateRoomViewController: ConnectManagerDelegate {
     func didRemoved(user: User) {
         radarView.removePointView(user)
     }
+    
+    
+    func didConnected() { }
+    
+    func didDisconnected() { }
+    
+    func didReceive(message: MessagePayload) { }
 }

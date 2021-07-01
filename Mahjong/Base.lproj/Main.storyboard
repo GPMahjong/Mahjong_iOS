@@ -62,36 +62,93 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnD-io-iP1" customClass="EasyRadarView" customModule="Mahjong" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="896" height="349"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ide-mR-kba">
+                                <rect key="frame" x="696" y="44" width="200" height="349"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpz-nO-sm3">
-                                        <rect key="frame" x="774" y="30" width="92" height="30"/>
-                                        <state key="normal" title="查找附近的人">
-                                            <color key="titleColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cFP-KN-NVr">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="289"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghL-WT-0hy">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="144.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjz-1j-j9L" customClass="CreateRoomPlaceholdView" customModule="Mahjong" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="144.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rB5-5K-s8n" customClass="CreateRoomPlaceholdView" customModule="Mahjong" customModuleProvider="target">
+                                                        <rect key="frame" x="100" y="0.0" width="100" height="144.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="rB5-5K-s8n" firstAttribute="width" secondItem="Tjz-1j-j9L" secondAttribute="width" id="wgV-7s-kfV"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zax-8V-2em">
+                                                <rect key="frame" x="0.0" y="144.5" width="200" height="144.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2l5-6v-2q5" customClass="CreateRoomPlaceholdView" customModule="Mahjong" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="144.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvz-kQ-DzR" customClass="CreateRoomPlaceholdView" customModule="Mahjong" customModuleProvider="target">
+                                                        <rect key="frame" x="100" y="0.0" width="100" height="144.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="tvz-kQ-DzR" firstAttribute="width" secondItem="2l5-6v-2q5" secondAttribute="width" id="nhx-N8-9D5"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Zax-8V-2em" firstAttribute="height" secondItem="ghL-WT-0hy" secondAttribute="height" id="Kq3-ww-ccj"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diw-vK-GL2">
+                                        <rect key="frame" x="0.0" y="289" width="200" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="QtZ-mc-0Fb"/>
+                                        </constraints>
+                                        <state key="normal" title="创建房间"/>
                                         <connections>
-                                            <action selector="didClickOnFindButton:" destination="gUd-Le-CK1" eventType="touchUpInside" id="PKr-DQ-VqY"/>
+                                            <action selector="didClickOnCreateRoomButton:" destination="gUd-Le-CK1" eventType="touchUpInside" id="JjE-ke-FBd"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Vpz-nO-sm3" firstAttribute="top" secondItem="JnD-io-iP1" secondAttribute="top" constant="30" id="JGl-V5-AN0"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vpz-nO-sm3" secondAttribute="trailing" constant="30" id="pZE-hm-hFI"/>
+                                    <constraint firstItem="cFP-KN-NVr" firstAttribute="top" secondItem="ide-mR-kba" secondAttribute="top" id="BX4-oZ-xyF"/>
+                                    <constraint firstAttribute="bottom" secondItem="diw-vK-GL2" secondAttribute="bottom" id="L1o-v8-aSS"/>
+                                    <constraint firstAttribute="width" constant="200" id="PxI-iu-Z8K"/>
+                                    <constraint firstAttribute="trailing" secondItem="cFP-KN-NVr" secondAttribute="trailing" id="bbk-8Q-Zo9"/>
+                                    <constraint firstItem="diw-vK-GL2" firstAttribute="leading" secondItem="ide-mR-kba" secondAttribute="leading" id="c4f-BE-8hO"/>
+                                    <constraint firstAttribute="trailing" secondItem="diw-vK-GL2" secondAttribute="trailing" id="jfa-tm-jE5"/>
+                                    <constraint firstItem="cFP-KN-NVr" firstAttribute="leading" secondItem="ide-mR-kba" secondAttribute="leading" id="uhN-dJ-Woe"/>
+                                    <constraint firstItem="diw-vK-GL2" firstAttribute="top" secondItem="cFP-KN-NVr" secondAttribute="bottom" id="xyY-sB-YH3"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JnD-io-iP1" firstAttribute="leading" secondItem="RYe-tc-pCM" secondAttribute="leading" id="905-T1-Hbs"/>
+                            <constraint firstItem="lCP-WM-WmJ" firstAttribute="top" secondItem="ide-mR-kba" secondAttribute="bottom" id="ApJ-vV-7dJ"/>
                             <constraint firstItem="lCP-WM-WmJ" firstAttribute="top" secondItem="JnD-io-iP1" secondAttribute="bottom" id="LuG-j0-gCa"/>
-                            <constraint firstAttribute="trailing" secondItem="JnD-io-iP1" secondAttribute="trailing" id="VhY-ip-60o"/>
+                            <constraint firstAttribute="trailing" secondItem="ide-mR-kba" secondAttribute="trailing" id="Zr7-y8-ENF"/>
+                            <constraint firstItem="ide-mR-kba" firstAttribute="top" secondItem="UuM-D7-6qJ" secondAttribute="bottom" id="rhd-i0-qcL"/>
                             <constraint firstItem="JnD-io-iP1" firstAttribute="top" secondItem="UuM-D7-6qJ" secondAttribute="bottom" id="tB4-HV-Hri"/>
+                            <constraint firstAttribute="trailing" secondItem="JnD-io-iP1" secondAttribute="trailing" id="yQT-e6-ape"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7vY-o8-LlX"/>
                     <connections>
-                        <outlet property="findButton" destination="Vpz-nO-sm3" id="u0l-JM-K6O"/>
+                        <outlet property="firstManView" destination="Tjz-1j-j9L" id="wE4-5b-j2O"/>
+                        <outlet property="fouthManView" destination="tvz-kQ-DzR" id="ltu-0n-etP"/>
                         <outlet property="radarView" destination="JnD-io-iP1" id="gG2-S0-s3k"/>
+                        <outlet property="secondManView" destination="rB5-5K-s8n" id="6YQ-rl-03z"/>
+                        <outlet property="thirdManView" destination="2l5-6v-2q5" id="RJd-jw-o7O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqf-A4-Mrc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

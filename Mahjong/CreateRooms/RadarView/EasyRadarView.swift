@@ -11,6 +11,7 @@ let RADAR_DEFAULT_CENTERVIEW_RADIUS: CGFloat = 38.0 //默认中心视图半径�
 let RADAR_DEFAULT_CIRCLE_NUM: Int = 4 //默认圈数
 let RADAR_DEFAULT_CIRCLE_INCREMENT: CGFloat = 10.0 //默认圈与圈的增长量
 let RADAR_DEFAULT_RADIUS: CGFloat = 240.0 //默认指针半径大小
+let RADAR_DEFAULT_POINT_VIEW_RADIUS: CGFloat = 30.0 //默认标注点半径大小
 
 //MARK:- Lifecycle
 open class EasyRadarView: UIView {
@@ -27,6 +28,8 @@ open class EasyRadarView: UIView {
     
     //MARK:- Private属性
     private var pointViewArr: [EasyRadarPointView] = []//所有的点视图
+    
+    private var centerView: UIImageView? //中间视图
     
     lazy var radarIndicatorView: EasyRadarIndicatorView = {
         let radarIndicatorView = EasyRadarIndicatorView()
@@ -97,10 +100,10 @@ extension EasyRadarView {
     
     //添加标注点
     public func addPointView(_ user: User? = nil) {
-        let safeRadius: UInt32 = UInt32(self.indicatorViewRadius - centerViewRadius - 25)
+        let safeRadius: UInt32 = UInt32(indicatorViewRadius - centerViewRadius - 25)
         let angle = arc4random() % 360
         let radius = arc4random() % safeRadius + UInt32(centerViewRadius) + 25
-        let pointView = EasyRadarPointView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let pointView = EasyRadarPointView(frame: CGRect(x: 0, y: 0, width: RADAR_DEFAULT_POINT_VIEW_RADIUS, height: RADAR_DEFAULT_POINT_VIEW_RADIUS))
         pointView.tag = pointViewArr.count
         pointView.user = user
         pointView.layer.cornerRadius = pointView.frame.size.width / 2
@@ -137,7 +140,6 @@ extension EasyRadarView {
         }) { (_) in
         }
         pointsView.addSubview(pointView)
-        pointView.icon?.image = user?.avatar
     }
     
     //删除标注点
