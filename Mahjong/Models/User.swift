@@ -15,6 +15,9 @@ public class User {
     var name: String {
         return peer.name
     }
+    var userId: String {
+        return peer.id
+    }
     init(peer: Peer) {
         self.peer = peer
     }

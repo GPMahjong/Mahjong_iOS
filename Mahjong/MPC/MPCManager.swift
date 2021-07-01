@@ -8,29 +8,30 @@
 import UIKit
 import MultipeerKit
 
-protocol MPCManagerDelegate {
-    func didReceiveMessage(message: MessagePayload)
-    func didAddedPeer(peer: Peer)
-    func didRemovedPeer(peer: Peer)
+protocol ConnectManagerDelegate {
+    func didReceive(message: MessagePayload)
+    func didAdded(user: User)
+    func didRemoved(user: User)
+    func didConnected()
+    func didDisconnected()
 }
 
-class MPCManager: NSObject {
+class MPCManager {
     
-    var delegate: MPCManagerDelegate?
+    var delegate: ConnectManagerDelegate?
     
-
     private lazy var transceiver: MultipeerTransceiver = {
         var config = MultipeerConfiguration.default
         config.serviceType = "Mahjong"
         config.security.encryptionPreference = .required
 
         let t = MultipeerTransceiver(configuration: config)
-        t.receive(MessagePayload.self) { payload, peer in
-            
+        t.receive(MessagePayload.self) { [weak self] payload, peer in
+            self?.delegate?.didReceive(message: payload)
         }
         
-//        t.peerAdded =
-//        t.peerRemoved =
+        t.peerAdded = didAdded(peer:)
+        t.peerRemoved = didRemoved(peer:)
         return t
     }()
 
@@ -38,6 +39,20 @@ class MPCManager: NSObject {
         MultipeerDataSource(transceiver: transceiver)
     }()
     
+    init() {
+        dataSource.transceiver.resume()
+    }
     
+    func didAdded(peer: Peer) {
+        delegate?.didAdded(user: User(peer: peer))
+    }
+    
+    func didRemoved(peer: Peer) {
+        delegate?.didRemoved(user: User(peer: peer))
+    }
+    
+    func resume() {
+        transceiver.resume()
+    }
     
 }

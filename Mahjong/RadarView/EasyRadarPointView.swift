@@ -8,12 +8,23 @@
 import UIKit
 
 open class EasyRadarPointView: UIView {
-    public var user: User? //用户数据
+    
+    public var user: User? {
+        didSet {
+            nameLabel.text = user?.name
+        }
+    }
     
     var pointTapBlock: ((_ radarPointView: EasyRadarPointView) -> Void)?
     var angle: Int = 0 //角度
     var radius: Int = 0 //距离中心点的距离
     var icon: UIImageView?//小头像
+    var nameLabel = { () -> UILabel in
+        let label = UILabel(frame: CGRect.zero)
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.black
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +42,10 @@ open class EasyRadarPointView: UIView {
         self.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         self.addGestureRecognizer(tapGesture)
+        
+        addSubview(nameLabel)
+        nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
     @objc private func tapAction() {

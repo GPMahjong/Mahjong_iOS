@@ -10,42 +10,28 @@ import MultipeerKit
 
 class CreateRoomViewController: UIViewController {
 
+    @IBOutlet weak var findButton: UIButton!
     @IBOutlet weak var radarView: EasyRadarView!
-
-    private lazy var transceiver: MultipeerTransceiver = {
-        var config = MultipeerConfiguration.default
-        config.serviceType = "Mahjong"
-        config.security.encryptionPreference = .required
-
-        let t = MultipeerTransceiver(configuration: config)
-        t.receive(MessagePayload.self) { payload, peer in
-            
-        }
-        return t
-    }()
-
-    private lazy var dataSource: MultipeerDataSource = {
-        MultipeerDataSource(transceiver: transceiver)
-    }()
     
+    let connectManager = MPCManager()
+    var selectedUsers: [User] = []
+        
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        dataSource = MultipeerDataSource(transceiver: <#T##MultipeerTransceiver#>)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         setupRadarView()
-        radarView.scan()
+        connectManager.delegate = self
     }
     
-    func setupRadarView() {
+    private func setupRadarView() {
         //设置是否开启调试日志
         EasyRadarView.enableLog = true
         //设置背景图
@@ -59,14 +45,6 @@ class CreateRoomViewController: UIViewController {
         //设置每个圈与圈的增量距离
         radarView.circleIncrement = 10.0
         
-        for i in 1...20 {
-            let delayTime = Double(i * 1)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayTime) {
-                self.radarView.addPointView()
-            }
-            
-        }
-        
         //设置标注点击回调
         radarView.pointTapBlock = { (radarPointView) in
             print("tag:\(radarPointView.tag)")
@@ -76,9 +54,41 @@ class CreateRoomViewController: UIViewController {
         }
     }
     
-    func didClickOnUser(_ user: User) {
+    //MARK: - Action
+    private func didClickOnUser(_ user: User) {
         print("\(#function) name = \(user.name)")
-        
+        if !selectedUsers.compactMap({ $0.userId }).contains(user.userId) {
+            selectedUsers.append(user)
+        }
     }
 
+    @IBAction func didClickOnFindButton(_ sender: UIButton) {
+        connectManager.resume()
+        radarView.scan()
+    }
+    
+}
+
+//MARK: - MPCManagerDelegate
+extension CreateRoomViewController: ConnectManagerDelegate {
+
+    func didConnected() {
+        
+    }
+    
+    func didDisconnected() {
+        
+    }
+    
+    func didReceive(message: MessagePayload) {
+        
+    }
+    
+    func didAdded(user: User) {
+        radarView.addPointView(user)
+    }
+    
+    func didRemoved(user: User) {
+        radarView.removePointView(user)
+    }
 }

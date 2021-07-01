@@ -26,7 +26,7 @@ open class EasyRadarView: UIView {
     public var centerViewImage: UIImage? //中间视图图片
     
     //MARK:- Private属性
-    private var pointViewArr: [UIView] = []//所有的点视图
+    private var pointViewArr: [EasyRadarPointView] = []//所有的点视图
     
     lazy var radarIndicatorView: EasyRadarIndicatorView = {
         let radarIndicatorView = EasyRadarIndicatorView()
@@ -137,11 +137,15 @@ extension EasyRadarView {
         }) { (_) in
         }
         pointsView.addSubview(pointView)
-        if let images = self.pointImages {
-            let imageIndex = arc4random() % UInt32(images.count)
-            pointView.icon?.image = images[Int(imageIndex)]
-        }
+        pointView.icon?.image = user?.avatar
     }
+    
+    //删除标注点
+    public func removePointView(_ user: User? = nil) {
+        guard let user = user, let pointView = pointViewArr.first(where: { $0.user?.userId == user.userId }) else { return }
+        pointView.removeFromSuperview()
+    }
+    
     //开始扫描
     public func scan() {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")

@@ -62,7 +62,22 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnD-io-iP1" customClass="EasyRadarView" customModule="Mahjong" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="896" height="349"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpz-nO-sm3">
+                                        <rect key="frame" x="774" y="30" width="92" height="30"/>
+                                        <state key="normal" title="查找附近的人">
+                                            <color key="titleColor" red="0.098023496569999993" green="0.098048247399999996" blue="0.098021931950000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickOnFindButton:" destination="gUd-Le-CK1" eventType="touchUpInside" id="PKr-DQ-VqY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Vpz-nO-sm3" firstAttribute="top" secondItem="JnD-io-iP1" secondAttribute="top" constant="30" id="JGl-V5-AN0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vpz-nO-sm3" secondAttribute="trailing" constant="30" id="pZE-hm-hFI"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,6 +90,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7vY-o8-LlX"/>
                     <connections>
+                        <outlet property="findButton" destination="Vpz-nO-sm3" id="u0l-JM-K6O"/>
                         <outlet property="radarView" destination="JnD-io-iP1" id="gG2-S0-s3k"/>
                     </connections>
                 </viewController>
