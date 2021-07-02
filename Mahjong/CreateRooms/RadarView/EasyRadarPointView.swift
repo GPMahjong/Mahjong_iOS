@@ -20,7 +20,7 @@ open class EasyRadarPointView: UIView {
     var angle: Int = 0 //角度
     var radius: Int = 0 //距离中心点的距离
     var icon: UIImageView?//小头像
-    var nameLabel = { () -> UILabel in
+    var nameLabel: UILabel = {
         let label = UILabel(frame: CGRect.zero)
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.black
@@ -28,7 +28,12 @@ open class EasyRadarPointView: UIView {
         label.isUserInteractionEnabled = true
         return label
     }()
-    private var backgroundButton: UIButton?
+    private var backgroundButton: UIButton = {
+        let button = UIButton(frame: CGRect.zero)
+        button.addTarget(self, action: #selector(tapAction(sender:)), for: .touchUpInside)
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,18 +47,23 @@ open class EasyRadarPointView: UIView {
     
     private func initView() {
         backgroundColor = UIColor.gray
-        icon = UIImageView(frame: self.bounds)
-        self.addSubview(icon!)
+        icon = UIImageView(frame: bounds)
+        addSubview(icon!)
         
         nameLabel.frame = bounds
         addSubview(nameLabel)
         
-        backgroundButton = UIButton(frame: bounds)
-        backgroundButton?.addTarget(self, action: #selector(tapAction(sender:)), for: .touchUpInside)
+        backgroundButton.frame = bounds
+        addSubview(backgroundButton)
     }
     
     @objc private func tapAction(sender: UIButton) {
         pointTapBlock?(self)
+    }
+    
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print("point \(#function)")
     }
 }
 

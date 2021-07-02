@@ -24,6 +24,9 @@
 		73DE105C268B226C00DBBDE4 /* MessagePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE105B268B226C00DBBDE4 /* MessagePayload.swift */; };
 		73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE105F268B235200DBBDE4 /* MPCManager.swift */; };
 		93BCCCFB268DF799006EC6B8 /* CreateRoomPlaceholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCFA268DF799006EC6B8 /* CreateRoomPlaceholdView.swift */; };
+		93BCCD00268F6703006EC6B8 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCFE268F6703006EC6B8 /* RoomViewController.swift */; };
+		93BCCD01268F6703006EC6B8 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BCCCFF268F6703006EC6B8 /* RoomViewController.xib */; };
+		93BCCD03268F68D4006EC6B8 /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD02268F68D4006EC6B8 /* RoomManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		73DE105B268B226C00DBBDE4 /* MessagePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePayload.swift; sourceTree = "<group>"; };
 		73DE105F268B235200DBBDE4 /* MPCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		93BCCCFA268DF799006EC6B8 /* CreateRoomPlaceholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomPlaceholdView.swift; sourceTree = "<group>"; };
+		93BCCCFE268F6703006EC6B8 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		93BCCCFF268F6703006EC6B8 /* RoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
+		93BCCD02268F68D4006EC6B8 /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 		73BB74752689BF7C00F059E8 /* Mahjong */ = {
 			isa = PBXGroup;
 			children = (
+				93BCCCFD268F66EF006EC6B8 /* Room */,
 				93BCCCF9268DF5F7006EC6B8 /* CreateRooms */,
 				73DE105E268B232A00DBBDE4 /* MPC */,
 				73DE1058268B0E4D00DBBDE4 /* Models */,
@@ -184,6 +191,16 @@
 				93BCCCFA268DF799006EC6B8 /* CreateRoomPlaceholdView.swift */,
 			);
 			path = CreateRooms;
+			sourceTree = "<group>";
+		};
+		93BCCCFD268F66EF006EC6B8 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				93BCCD02268F68D4006EC6B8 /* RoomManager.swift */,
+				93BCCCFE268F6703006EC6B8 /* RoomViewController.swift */,
+				93BCCCFF268F6703006EC6B8 /* RoomViewController.xib */,
+			);
+			path = Room;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +315,7 @@
 				73BB74832689BF7F00F059E8 /* LaunchScreen.storyboard in Resources */,
 				73BB74802689BF7F00F059E8 /* Assets.xcassets in Resources */,
 				73BB747E2689BF7C00F059E8 /* Main.storyboard in Resources */,
+				93BCCD01268F6703006EC6B8 /* RoomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +343,7 @@
 				73BB747B2689BF7C00F059E8 /* ViewController.swift in Sources */,
 				73DE1052268AC91000DBBDE4 /* EasyRadarIndicatorView.swift in Sources */,
 				73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */,
+				93BCCD00268F6703006EC6B8 /* RoomViewController.swift in Sources */,
 				73DE104E268AC0C700DBBDE4 /* EasyRadarView.swift in Sources */,
 				93BCCCFB268DF799006EC6B8 /* CreateRoomPlaceholdView.swift in Sources */,
 				73DE1054268AC9B700DBBDE4 /* CreateRoomViewController.swift in Sources */,
@@ -332,6 +351,7 @@
 				73BB74772689BF7C00F059E8 /* AppDelegate.swift in Sources */,
 				73BB74792689BF7C00F059E8 /* SceneDelegate.swift in Sources */,
 				73DE105C268B226C00DBBDE4 /* MessagePayload.swift in Sources */,
+				93BCCD03268F68D4006EC6B8 /* RoomManager.swift in Sources */,
 				73DE1050268AC8E400DBBDE4 /* EasyRadarPointView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

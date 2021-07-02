@@ -11,23 +11,26 @@ import MultipeerKit
 public class User {
     var peer: Peer?
     var avatar: UIImage? = UIImage(named: "photo")
+    var name: String = ""
+    var id: String = ""
+    var isLocalUser: Bool = false
+    
+    
+    static func localUser() -> User {
+        let user = User()
+        user.name = UIDevice.current.name
+        user.id = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        user.isLocalUser = true
+        return user
+    }
+}
+
+public class Participant {
+    var user: User
     var isReady: Bool = false
-    var name: String {
-        if let peer = peer {
-            return peer.name
-        } else {
-            return "default user"
-        }
-        
-    }
-    var userId: String {
-        if let peer = peer {
-            return peer.id
-        } else {
-            return "default userId"
-        }
-    }
-    init(peer: Peer? = nil) {
-        self.peer = peer
+    var isHomeowner: Bool = false
+    var isBoolmarker: Bool = false
+    init(_ user: User) {
+        self.user = user
     }
 }

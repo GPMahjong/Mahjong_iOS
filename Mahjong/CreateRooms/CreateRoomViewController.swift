@@ -18,7 +18,7 @@ class CreateRoomViewController: UIViewController {
     
     let connectManager = MPCManager()
     var selectedUsers: [User] = []
-        
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -29,11 +29,9 @@ class CreateRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        connectManager.delegate = ConnectManagerDelegateWeakObject([self])
         setupRadarView()
         radarView.scan()
-        connectManager.delegate = self
-        didAdded(user: User())
     }
     
     private func setupRadarView() {
@@ -59,16 +57,31 @@ class CreateRoomViewController: UIViewController {
         }
     }
     
-    //MARK: - Action
-    private func didClickOnUser(_ user: User) {
-        print("\(#function) name = \(user.name)")
-        if !selectedUsers.compactMap({ $0.userId }).contains(user.userId) {
-            selectedUsers.append(user)
+    private func updatePlaceholdView() {
+        firstManView.user = User.localUser()
+        if let user = selectedUsers[safe: 0] {
+            secondManView.user = user
+        }
+        if let user = selectedUsers[safe: 1] {
+            thirdManView.user = user
+        }
+        if let user = selectedUsers[safe: 2] {
+            fouthManView.user = user
         }
     }
     
+    //MARK: - Action
+    private func didClickOnUser(_ user: User) {
+        print("\(#function) name = \(user.name)")
+        if !selectedUsers.compactMap({ $0.id }).contains(user.id) {
+            selectedUsers.append(user)
+        }
+        updatePlaceholdView()
+    }
+    
     @IBAction func didClickOnCreateRoomButton(_ sender: Any) {
-        
+        let roomVC = RoomViewController(selectedUsers, connectManager)
+        navigationController?.pushViewController(roomVC, animated: true)
     }
 }
 
@@ -89,4 +102,10 @@ extension CreateRoomViewController: ConnectManagerDelegate {
     func didDisconnected() { }
     
     func didReceive(message: MessagePayload) { }
+}
+
+extension Array {
+    subscript (safe index: Index) -> Element? {
+        return 0 <= index && index < count ? self[index] : nil
+    }
 }

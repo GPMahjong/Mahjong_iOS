@@ -11,7 +11,7 @@ let RADAR_DEFAULT_CENTERVIEW_RADIUS: CGFloat = 38.0 //默认中心视图半径�
 let RADAR_DEFAULT_CIRCLE_NUM: Int = 4 //默认圈数
 let RADAR_DEFAULT_CIRCLE_INCREMENT: CGFloat = 10.0 //默认圈与圈的增长量
 let RADAR_DEFAULT_RADIUS: CGFloat = 240.0 //默认指针半径大小
-let RADAR_DEFAULT_POINT_VIEW_RADIUS: CGFloat = 30.0 //默认标注点半径大小
+let RADAR_DEFAULT_POINT_VIEW_RADIUS: CGFloat = 50.0 //默认标注点半径大小
 
 //MARK:- Lifecycle
 open class EasyRadarView: UIView {
@@ -36,10 +36,7 @@ open class EasyRadarView: UIView {
         return radarIndicatorView
     }()
     
-    lazy var pointsView: UIView = {
-        let pointsView = UIView()
-        return pointsView
-    }()
+    lazy var pointsView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,7 +87,7 @@ open class EasyRadarView: UIView {
         self.radarIndicatorView.center = self.center
         self.radarIndicatorView.radius = self.indicatorViewRadius
         self.radarIndicatorView.backgroundColor = UIColor.clear
-        self.pointsView.frame =  self.radarIndicatorView.bounds
+        self.pointsView.frame = frame
     }
 }
 //MARK:- 公共方法
@@ -144,7 +141,7 @@ extension EasyRadarView {
     
     //删除标注点
     public func removePointView(_ user: User? = nil) {
-        guard let user = user, let pointView = pointViewArr.first(where: { $0.user?.userId == user.userId }) else { return }
+        guard let user = user, let pointView = pointViewArr.first(where: { $0.user?.id == user.id }) else { return }
         pointView.removeFromSuperview()
     }
     

@@ -42,6 +42,8 @@ class CreateRoomPlaceholdView: UIView {
     }
     
     private func initSubview() {
+        translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(nameLabel)
         nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

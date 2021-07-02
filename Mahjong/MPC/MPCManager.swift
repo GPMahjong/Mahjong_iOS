@@ -8,7 +8,7 @@
 import UIKit
 import MultipeerKit
 
-protocol ConnectManagerDelegate {
+protocol ConnectManagerDelegate: AnyObject {
     func didReceive(message: MessagePayload)
     func didAdded(user: User)
     func didRemoved(user: User)
@@ -18,7 +18,7 @@ protocol ConnectManagerDelegate {
 
 class MPCManager {
     
-    var delegate: ConnectManagerDelegate?
+    var delegate: ConnectManagerDelegateWeakObject?
     
     private lazy var transceiver: MultipeerTransceiver = {
         var config = MultipeerConfiguration.default
@@ -44,15 +44,79 @@ class MPCManager {
     }
     
     func didAdded(peer: Peer) {
-        delegate?.didAdded(user: User(peer: peer))
+        delegate?.didAdded(user: createUser(peer))
     }
     
     func didRemoved(peer: Peer) {
-        delegate?.didRemoved(user: User(peer: peer))
+        delegate?.didRemoved(user: createUser(peer))
     }
     
     func resume() {
         transceiver.resume()
     }
     
+    func createUser(_ peer: Peer) -> User {
+        let user = User()
+        user.peer = peer
+        user.name = peer.name
+        user.id = peer.id
+        return user
+    }
+    
 }
+
+// MARK: - ConnectManagerDelegateWeakObject
+class ConnectManagerDelegateWeakObject : ConnectManagerDelegate {
+    
+    private let multiDelegate: NSHashTable<AnyObject> = NSHashTable.weakObjects()
+
+    init(_ delegates: [ConnectManagerDelegate]) {
+        delegates.forEach { multiDelegate.add($0) }
+    }
+
+    // 遍历所有遵守协议的类
+    private func invoke(_ invocation: (ConnectManagerDelegate) -> Void) {
+        for delegate in multiDelegate.allObjects.reversed() {
+            invocation(delegate as! ConnectManagerDelegate)
+        }
+    }
+    // 添加遵守协议的类
+    func add(_ delegate: ConnectManagerDelegate) {
+        multiDelegate.add(delegate)
+    }
+    
+    // 删除指定遵守协议的类
+    func remove(_ delegateToRemove: ConnectManagerDelegate) {
+        invoke {
+            if $0 === delegateToRemove as AnyObject {
+                multiDelegate.remove($0)
+            }
+        }
+    }
+    
+    // 删除所有遵守协议的类
+    func removeAll() {
+        multiDelegate.removeAllObjects()
+    }
+    
+    func didReceive(message: MessagePayload) {
+        invoke { $0.didReceive(message: message)}
+    }
+    
+    func didAdded(user: User) {
+        invoke { $0.didAdded(user: user)}
+    }
+    
+    func didRemoved(user: User) {
+        invoke { $0.didRemoved(user: user)}
+    }
+    
+    func didConnected() {
+        invoke { $0.didConnected()}
+    }
+    
+    func didDisconnected() {
+        invoke { $0.didDisconnected()}
+    }
+}
+
