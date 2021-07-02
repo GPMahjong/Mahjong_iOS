@@ -17,7 +17,7 @@ protocol ConnectManagerDelegate: AnyObject {
 }
 
 class MPCManager {
-    
+    static let shareInstance = MPCManager()
     var delegate: ConnectManagerDelegateWeakObject?
     
     private lazy var transceiver: MultipeerTransceiver = {

@@ -16,7 +16,6 @@ class CreateRoomViewController: UIViewController {
     @IBOutlet weak var thirdManView: CreateRoomPlaceholdView!
     @IBOutlet weak var fouthManView: CreateRoomPlaceholdView!
     
-    let connectManager = MPCManager()
     var selectedUsers: [User] = []
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -29,7 +28,7 @@ class CreateRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectManager.delegate = ConnectManagerDelegateWeakObject([self])
+        MPCManager.shareInstance.delegate = ConnectManagerDelegateWeakObject([self])
         setupRadarView()
         radarView.scan()
     }
@@ -80,7 +79,7 @@ class CreateRoomViewController: UIViewController {
     }
     
     @IBAction func didClickOnCreateRoomButton(_ sender: Any) {
-        let roomVC = RoomViewController(selectedUsers, connectManager)
+        let roomVC = RoomViewController(selectedUsers)
         navigationController?.pushViewController(roomVC, animated: true)
     }
 }

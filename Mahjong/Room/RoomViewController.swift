@@ -11,11 +11,8 @@ class RoomViewController: UIViewController {
 
     var participants: [Participant] = []
     
-    var connectManager: MPCManager
-    
-    init(_ selectedUser: [User], _ connectManager: MPCManager) {
+    init(_ selectedUser: [User]) {
         participants = selectedUser.map({ Participant($0) })
-        self.connectManager = connectManager
         super.init(nibName: "RoomViewController", bundle: nil)
     }
     
@@ -25,7 +22,7 @@ class RoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectManager.delegate?.add(self)
+        MPCManager.shareInstance.delegate?.add(self)
         // Do any additional setup after loading the view.
     }
 
