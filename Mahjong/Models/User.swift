@@ -13,6 +13,7 @@ public class User {
     var avatar: UIImage? = UIImage(named: "photo")
     var name: String = ""
     var id: String = ""
+    var uuid: String = ""
     var isLocalUser: Bool = false
     
     
@@ -20,6 +21,7 @@ public class User {
         let user = User()
         user.name = UIDevice.current.name
         user.id = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        user.uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         user.isLocalUser = true
         return user
     }
