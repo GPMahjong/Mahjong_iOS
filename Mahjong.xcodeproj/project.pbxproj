@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		731D1AB22692FD63005E1005 /* ActionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731D1AB12692FD63005E1005 /* ActionPayload.swift */; };
 		73BB74772689BF7C00F059E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB74762689BF7C00F059E8 /* AppDelegate.swift */; };
 		73BB74792689BF7C00F059E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB74782689BF7C00F059E8 /* SceneDelegate.swift */; };
 		73BB747B2689BF7C00F059E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB747A2689BF7C00F059E8 /* ViewController.swift */; };
@@ -27,7 +28,7 @@
 		93BCCD00268F6703006EC6B8 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCFE268F6703006EC6B8 /* RoomViewController.swift */; };
 		93BCCD01268F6703006EC6B8 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BCCCFF268F6703006EC6B8 /* RoomViewController.xib */; };
 		93BCCD03268F68D4006EC6B8 /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD02268F68D4006EC6B8 /* RoomManager.swift */; };
-		93BCCD07268FF828006EC6B8 /* CardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD06268FF828006EC6B8 /* CardUtil.swift */; };
+		93BCCD07268FF828006EC6B8 /* Card+util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD06268FF828006EC6B8 /* Card+util.swift */; };
 		93BCCD09268FF89B006EC6B8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD08268FF89B006EC6B8 /* Card.swift */; };
 		93BCCD0C26900376006EC6B8 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD0B26900376006EC6B8 /* Wall.swift */; };
 		93BCCD0E26900A74006EC6B8 /* Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD0D26900A74006EC6B8 /* Draw.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		731D1AB12692FD63005E1005 /* ActionPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPayload.swift; sourceTree = "<group>"; };
 		73BB74732689BF7C00F059E8 /* Mahjong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mahjong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73BB74762689BF7C00F059E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73BB74782689BF7C00F059E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		93BCCCFE268F6703006EC6B8 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		93BCCCFF268F6703006EC6B8 /* RoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
 		93BCCD02268F68D4006EC6B8 /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
-		93BCCD06268FF828006EC6B8 /* CardUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUtil.swift; sourceTree = "<group>"; };
+		93BCCD06268FF828006EC6B8 /* Card+util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+util.swift"; sourceTree = "<group>"; };
 		93BCCD08268FF89B006EC6B8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		93BCCD0B26900376006EC6B8 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		93BCCD0D26900A74006EC6B8 /* Draw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draw.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				73DE1059268B0E6D00DBBDE4 /* User.swift */,
 				73DE105B268B226C00DBBDE4 /* MessagePayload.swift */,
+				731D1AB12692FD63005E1005 /* ActionPayload.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,7 +233,7 @@
 		93BCCD05268FF816006EC6B8 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				93BCCD06268FF828006EC6B8 /* CardUtil.swift */,
+				93BCCD06268FF828006EC6B8 /* Card+util.swift */,
 				93BCCD08268FF89B006EC6B8 /* Card.swift */,
 			);
 			path = Card;
@@ -408,10 +411,11 @@
 				93BCCD0C26900376006EC6B8 /* Wall.swift in Sources */,
 				93BCCCFB268DF799006EC6B8 /* CreateRoomPlaceholdView.swift in Sources */,
 				73DE1054268AC9B700DBBDE4 /* CreateRoomViewController.swift in Sources */,
+				731D1AB22692FD63005E1005 /* ActionPayload.swift in Sources */,
 				73DE105A268B0E6D00DBBDE4 /* User.swift in Sources */,
 				93BCCD09268FF89B006EC6B8 /* Card.swift in Sources */,
 				73BB74772689BF7C00F059E8 /* AppDelegate.swift in Sources */,
-				93BCCD07268FF828006EC6B8 /* CardUtil.swift in Sources */,
+				93BCCD07268FF828006EC6B8 /* Card+util.swift in Sources */,
 				73BB74792689BF7C00F059E8 /* SceneDelegate.swift in Sources */,
 				73DE105C268B226C00DBBDE4 /* MessagePayload.swift in Sources */,
 				93BCCD11269018A5006EC6B8 /* Ting.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 
 // 麻将牌面对应的数值定义
-enum Card: Int {
+enum Card: Int, CaseIterable, Codable {
     case MAHJONG_PLACEHOLDER = 0 // 空，占位，无意义
     case MAHJONG_CRAK1              // 万(1 ~ 9)
     case MAHJONG_CRAK2
@@ -67,14 +67,37 @@ extension Card: Comparable {
         return lhs.rawValue < rhs.rawValue
     }
     
+    static func <= (lhs: Card, rhs: Card) -> Bool {
+        return lhs.rawValue <= rhs.rawValue
+    }
+    
     static func > (lhs: Card, rhs: Card) -> Bool {
         return lhs.rawValue > rhs.rawValue
+    }
+    
+    static func >= (lhs: Card, rhs: Card) -> Bool {
+        return lhs.rawValue >= rhs.rawValue
     }
     
     static func == (lhs: Card, rhs: Card) -> Bool {
         return lhs.rawValue == rhs.rawValue
     }
     
+    func next() -> Card {
+        let nextIndex = rawValue+1
+        guard nextIndex < Card.allCases.count else {
+            return .MAHJONG_PLACEHOLDER
+        }
+        return Card.allCases[nextIndex];
+    }
+    
+    func before() -> Card {
+        let beforeIndex = rawValue-1
+        guard beforeIndex >= 0 else {
+            return .MAHJONG_PLACEHOLDER
+        }
+        return Card.allCases[beforeIndex];
+    }
     
 }
 

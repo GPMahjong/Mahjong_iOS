@@ -8,5 +8,11 @@
 import Foundation
 
 public struct MessagePayload: Hashable, Codable {
-    let message: String
+    var isHomeowener: Bool = false
+    var isBoolmaker: Bool = false
+    var isReady: Bool = false
+    var hasAction: Bool = false
+    var diceNumber: Int = 0
+//    let participants: [User] = []
+    
 }

@@ -62,7 +62,7 @@ extension Wall {
         for i in 1..<arr.count {
             let index:Int = Int(arc4random()) % i
             if index != i {
-                swap(&data[i], &data[index])
+                data.swapAt(i, index)
             }
         }
         return data

@@ -16,7 +16,6 @@ public class User {
     var uuid: String = ""
     var isLocalUser: Bool = false
     
-    
     static func localUser() -> User {
         let user = User()
         user.name = UIDevice.current.name
