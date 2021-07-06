@@ -17,7 +17,7 @@ protocol MPCManagerDelegate: AnyObject {
 }
 
 protocol MPCManagerProtocol: AnyObject {
-    func sendMessageToClient(_ user: User)
+    func sendMessage(_ message: BasicMessage, to user: User)
     func sendMessageToAll(_ message: BasicMessage)
 }
 
@@ -61,13 +61,24 @@ class MPCManager {
     }
     
     func createUser(_ peer: Peer) -> User {
-        let user = User()
-        user.peer = peer
+        var user = User()
         user.name = peer.name
         user.id = peer.id
         return user
     }
+}
+
+extension MPCManager: MPCManagerProtocol {
+    func sendMessage(_ message: BasicMessage, to user: User) {
+        if let peer = transceiver.availablePeers.first(where: { $0.id == user.id }) {
+            transceiver.send(message, to: [peer])
+        }
+    }
     
+    func sendMessageToAll(_ message: BasicMessage) {
+        guard !transceiver.availablePeers.isEmpty else { return }
+        transceiver.send(message, to: transceiver.availablePeers)
+    }
 }
 
 // MARK: - ConnectManagerDelegateWeakObject

@@ -23,7 +23,7 @@ class RoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MPCManager.shareInstance.delegate?.add(self)
-        MPCManager.shareInstance.
+        MPCManager.shareInstance.send
     }
 
 

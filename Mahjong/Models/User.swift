@@ -8,16 +8,15 @@
 import UIKit
 import MultipeerKit
 
-public class User {
-    var peer: Peer?
-    var avatar: UIImage? = UIImage(named: "photo")
+public struct User: Codable {
+//    var avatar: UIImage? = UIImage(named: "photo")
     var name: String = ""
     var id: String = ""
     var uuid: String = ""
     var isLocalUser: Bool = false
     
     static func localUser() -> User {
-        let user = User()
+        var user = User()
         user.name = UIDevice.current.name
         user.id = UIDevice.current.identifierForVendor?.uuidString ?? ""
         user.uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
@@ -26,7 +25,7 @@ public class User {
     }
 }
 
-public class Participant {
+public struct Participant: Codable {
     var user: User
     var isReady: Bool = false
     var isHomeowner: Bool = false

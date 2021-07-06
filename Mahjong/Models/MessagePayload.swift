@@ -7,17 +7,16 @@
 
 import Foundation
 
-protocol BasicMessage: Hashable, Codable {
-    var uuid: String { get set }
+public class BasicMessage: Codable {
+    var uuid: String = ""
 }
 
-public struct MessagePayload: BasicMessage {
-    var uuid: String = ""
+public class MessagePayload: BasicMessage {
     var isHomeowener: Bool = false
     var isBoolmaker: Bool = false
     var isReady: Bool = false
     var hasAction: Bool = false
     var diceNumber: Int = 0
-//    let participants: [User] = []
+    let participants: [User] = []
     
 }
