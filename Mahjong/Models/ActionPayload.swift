@@ -17,7 +17,8 @@ enum Action: Int, Codable {
     case HU     //胡
 }
 
-public struct ActionPayload: Hashable, Codable {
+public struct ActionPayload: BasicMessage {
+    var uuid: String = ""
     var type: Action = .PLACEHOLD
-    var showCard: Card = .MAHJONG_PLACEHOLDER
+    var cards: [Card] = []
 }

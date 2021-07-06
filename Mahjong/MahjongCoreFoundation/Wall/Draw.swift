@@ -36,7 +36,7 @@ class Draw {
         defer {
             wall.forward += n
         }
-        return Array(wall.tiles[wall.forward...wall.forward+n])
+        return Array(wall.tiles[wall.forward..<wall.forward+n])
     }
 
     // BackwardDraw 从后面抓牌

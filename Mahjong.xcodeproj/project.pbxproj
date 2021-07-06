@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		731D1AB22692FD63005E1005 /* ActionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731D1AB12692FD63005E1005 /* ActionPayload.swift */; };
+		731D1AB426942EBE005E1005 /* TingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731D1AB326942EBE005E1005 /* TingTests.swift */; };
+		731D1AB626942EFF005E1005 /* WinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB748D2689BF7F00F059E8 /* WinTests.swift */; };
+		731D1AB9269433EF005E1005 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731D1AB8269433EF005E1005 /* Array+Extension.swift */; };
+		731D1ABB2694378E005E1005 /* WallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731D1ABA2694378E005E1005 /* WallTest.swift */; };
 		73BB74772689BF7C00F059E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB74762689BF7C00F059E8 /* AppDelegate.swift */; };
 		73BB74792689BF7C00F059E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB74782689BF7C00F059E8 /* SceneDelegate.swift */; };
 		73BB747B2689BF7C00F059E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB747A2689BF7C00F059E8 /* ViewController.swift */; };
 		73BB747E2689BF7C00F059E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BB747C2689BF7C00F059E8 /* Main.storyboard */; };
 		73BB74802689BF7F00F059E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BB747F2689BF7F00F059E8 /* Assets.xcassets */; };
 		73BB74832689BF7F00F059E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BB74812689BF7F00F059E8 /* LaunchScreen.storyboard */; };
-		73BB748E2689BF7F00F059E8 /* MahjongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB748D2689BF7F00F059E8 /* MahjongTests.swift */; };
 		73BB74992689BF7F00F059E8 /* MahjongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB74982689BF7F00F059E8 /* MahjongUITests.swift */; };
 		73BB74AB2689C03500F059E8 /* MultipeerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 73BB74AA2689C03500F059E8 /* MultipeerKit */; };
 		73DE104E268AC0C700DBBDE4 /* EasyRadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE104D268AC0C700DBBDE4 /* EasyRadarView.swift */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		731D1AB12692FD63005E1005 /* ActionPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPayload.swift; sourceTree = "<group>"; };
+		731D1AB326942EBE005E1005 /* TingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TingTests.swift; sourceTree = "<group>"; };
+		731D1AB8269433EF005E1005 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		731D1ABA2694378E005E1005 /* WallTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallTest.swift; sourceTree = "<group>"; };
 		73BB74732689BF7C00F059E8 /* Mahjong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mahjong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73BB74762689BF7C00F059E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73BB74782689BF7C00F059E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +70,7 @@
 		73BB74822689BF7F00F059E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73BB74842689BF7F00F059E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73BB74892689BF7F00F059E8 /* MahjongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MahjongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73BB748D2689BF7F00F059E8 /* MahjongTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MahjongTests.swift; sourceTree = "<group>"; };
+		73BB748D2689BF7F00F059E8 /* WinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinTests.swift; sourceTree = "<group>"; };
 		73BB748F2689BF7F00F059E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73BB74942689BF7F00F059E8 /* MahjongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MahjongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73BB74982689BF7F00F059E8 /* MahjongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MahjongUITests.swift; sourceTree = "<group>"; };
@@ -114,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		731D1AB7269433C8005E1005 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				731D1AB8269433EF005E1005 /* Array+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		73BB746A2689BF7C00F059E8 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +151,7 @@
 		73BB74752689BF7C00F059E8 /* Mahjong */ = {
 			isa = PBXGroup;
 			children = (
+				731D1AB7269433C8005E1005 /* Extension */,
 				93BCCD04268FF7D5006EC6B8 /* MahjongCoreFoundation */,
 				93BCCCFD268F66EF006EC6B8 /* Room */,
 				93BCCCF9268DF5F7006EC6B8 /* CreateRooms */,
@@ -156,7 +171,9 @@
 		73BB748C2689BF7F00F059E8 /* MahjongTests */ = {
 			isa = PBXGroup;
 			children = (
-				73BB748D2689BF7F00F059E8 /* MahjongTests.swift */,
+				73BB748D2689BF7F00F059E8 /* WinTests.swift */,
+				731D1AB326942EBE005E1005 /* TingTests.swift */,
+				731D1ABA2694378E005E1005 /* WallTest.swift */,
 				73BB748F2689BF7F00F059E8 /* Info.plist */,
 			);
 			path = MahjongTests;
@@ -419,6 +436,7 @@
 				73BB74792689BF7C00F059E8 /* SceneDelegate.swift in Sources */,
 				73DE105C268B226C00DBBDE4 /* MessagePayload.swift in Sources */,
 				93BCCD11269018A5006EC6B8 /* Ting.swift in Sources */,
+				731D1AB9269433EF005E1005 /* Array+Extension.swift in Sources */,
 				93BCCD03268F68D4006EC6B8 /* RoomManager.swift in Sources */,
 				73DE1050268AC8E400DBBDE4 /* EasyRadarPointView.swift in Sources */,
 			);
@@ -428,7 +446,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73BB748E2689BF7F00F059E8 /* MahjongTests.swift in Sources */,
+				731D1ABB2694378E005E1005 /* WallTest.swift in Sources */,
+				731D1AB626942EFF005E1005 /* WinTests.swift in Sources */,
+				731D1AB426942EBE005E1005 /* TingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

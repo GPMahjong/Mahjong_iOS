@@ -55,9 +55,19 @@ class Win {
     // 传入的牌需要是已排序的
     static func findPairPos(_ sortedCards: [Card]) -> [Int] {
         var pos: [Int] = []
+        var gangRange: Range<Int>?
         sortedCards.enumerated().forEach { (index, card) in
-            if index < sortedCards.count - 1 ,card == sortedCards[index + 1] {
+            //特殊处理四个一样的牌
+            if sortedCards.count >= 4, index <= sortedCards.count - 4, card == sortedCards[index+1],card == sortedCards[index+2],card == sortedCards[index+3] {
+                gangRange = (index..<index+4)
                 pos.append(index)
+                pos.append(index+2)
+            } else if index < sortedCards.count - 1 ,card == sortedCards[index + 1] {
+                if let rang = gangRange, rang.contains(index) {
+                    //四个连续牌已经处理过了，这里不需要重复处理
+                } else {
+                    pos.append(index)
+                }
             }
         }
         return pos

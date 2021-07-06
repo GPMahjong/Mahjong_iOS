@@ -23,7 +23,7 @@ class RoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MPCManager.shareInstance.delegate?.add(self)
-        // Do any additional setup after loading the view.
+        MPCManager.shareInstance.
     }
 
 
@@ -39,7 +39,7 @@ class RoomViewController: UIViewController {
 
 }
 
-extension RoomViewController: ConnectManagerDelegate {
+extension RoomViewController: MPCManagerDelegate {
     func didReceive(message: MessagePayload) {
         
     }

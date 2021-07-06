@@ -14,8 +14,11 @@ class Ting: NSObject {
         var canTing = false
         var tingCards: [Card] = []
         // 循环将可能听的牌，带入到手牌，再用胡牌算法检测是否可胡
-        for card in GetMaybeTing(handCards: handCards, showCards: showCards) {
-            if Win.canWin(handCards, showCards) {
+        let maybeTingCards = GetMaybeTing(handCards: handCards, showCards: showCards)
+        for card in maybeTingCards {
+            var tmp = handCards
+            tmp.append(card)
+            if Win.canWin(tmp, showCards) {
                 canTing = true
                 tingCards.append(card)
             }
@@ -47,7 +50,7 @@ class Ting: NSObject {
         handCards.enumerated().forEach { (index, playCard) in
             var handCardsTmp: [Card] = []
             handCardsTmp.append(contentsOf: Array(handCards[0..<index]))
-            handCardsTmp.append(contentsOf: Array(handCards[index..<handCardsLength]))
+            handCardsTmp.append(contentsOf: Array(handCards[index+1..<handCardsLength]))
             let tingCards = CanTing(handCards: handCardsTmp, showCards: showCards)
             tingMap[playCard] = tingCards.1
         }

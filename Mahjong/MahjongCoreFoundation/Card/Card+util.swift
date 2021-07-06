@@ -29,7 +29,7 @@ extension Card {
                 result.append(contentsOf: [card.before(),card.next()])
             }
         }
-        return result
+        return result.unique
     }
 
     // GetRelationTiles 获取有关联的牌

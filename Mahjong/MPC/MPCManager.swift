@@ -8,12 +8,17 @@
 import UIKit
 import MultipeerKit
 
-protocol ConnectManagerDelegate: AnyObject {
+protocol MPCManagerDelegate: AnyObject {
     func didReceive(message: MessagePayload)
     func didAdded(user: User)
     func didRemoved(user: User)
     func didConnected()
     func didDisconnected()
+}
+
+protocol MPCManagerProtocol: AnyObject {
+    func sendMessageToClient(_ user: User)
+    func sendMessageToAll(_ message: BasicMessage)
 }
 
 class MPCManager {
@@ -66,27 +71,27 @@ class MPCManager {
 }
 
 // MARK: - ConnectManagerDelegateWeakObject
-class ConnectManagerDelegateWeakObject : ConnectManagerDelegate {
+class ConnectManagerDelegateWeakObject : MPCManagerDelegate {
     
     private let multiDelegate: NSHashTable<AnyObject> = NSHashTable.weakObjects()
 
-    init(_ delegates: [ConnectManagerDelegate]) {
+    init(_ delegates: [MPCManagerDelegate]) {
         delegates.forEach { multiDelegate.add($0) }
     }
 
     // 遍历所有遵守协议的类
-    private func invoke(_ invocation: (ConnectManagerDelegate) -> Void) {
+    private func invoke(_ invocation: (MPCManagerDelegate) -> Void) {
         for delegate in multiDelegate.allObjects.reversed() {
-            invocation(delegate as! ConnectManagerDelegate)
+            invocation(delegate as! MPCManagerDelegate)
         }
     }
     // 添加遵守协议的类
-    func add(_ delegate: ConnectManagerDelegate) {
+    func add(_ delegate: MPCManagerDelegate) {
         multiDelegate.add(delegate)
     }
     
     // 删除指定遵守协议的类
-    func remove(_ delegateToRemove: ConnectManagerDelegate) {
+    func remove(_ delegateToRemove: MPCManagerDelegate) {
         invoke {
             if $0 === delegateToRemove as AnyObject {
                 multiDelegate.remove($0)

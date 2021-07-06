@@ -85,7 +85,7 @@ class CreateRoomViewController: UIViewController {
 }
 
 //MARK: - MPCManagerDelegate
-extension CreateRoomViewController: ConnectManagerDelegate {
+extension CreateRoomViewController: MPCManagerDelegate {
     
     func didAdded(user: User) {
         radarView.addPointView(user)
@@ -101,10 +101,4 @@ extension CreateRoomViewController: ConnectManagerDelegate {
     func didDisconnected() { }
     
     func didReceive(message: MessagePayload) { }
-}
-
-extension Array {
-    subscript (safe index: Index) -> Element? {
-        return 0 <= index && index < count ? self[index] : nil
-    }
 }

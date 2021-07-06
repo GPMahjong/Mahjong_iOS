@@ -7,7 +7,12 @@
 
 import Foundation
 
-public struct MessagePayload: Hashable, Codable {
+protocol BasicMessage: Hashable, Codable {
+    var uuid: String { get set }
+}
+
+public struct MessagePayload: BasicMessage {
+    var uuid: String = ""
     var isHomeowener: Bool = false
     var isBoolmaker: Bool = false
     var isReady: Bool = false
