@@ -18,9 +18,12 @@ class MahjongTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testWin() throws {
+        let handCards: [Card] = [.MAHJONG_BAM1,.MAHJONG_BAM2,.MAHJONG_BAM3,.MAHJONG_BAM5,.MAHJONG_BAM5,.MAHJONG_BAM5,.MAHJONG_DOT2,.MAHJONG_DOT2,.MAHJONG_DOT7,.MAHJONG_DOT8, .MAHJONG_DOT9]
+        let showCards: [Card] = [.MAHJONG_DOT9,.MAHJONG_DOT9,.MAHJONG_DOT9]
+        let canWin = Win.canWin(handCards, showCards)
+        XCTAssertTrue(canWin)
+        
     }
 
     func testPerformanceExample() throws {

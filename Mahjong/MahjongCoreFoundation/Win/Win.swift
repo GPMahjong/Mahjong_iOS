@@ -12,7 +12,7 @@ class Win {
     // CanWin 判断当前牌型是否是胡牌牌型(7对或4A+2B)
     // 需要根据手牌和明牌去判断是否胡牌
     static func canWin(_ handCards: [Card], _ showCards: [Card]) -> Bool {
-        let sortedCards = handCards.sorted { $0.rawValue > $1.rawValue }
+        let sortedCards = handCards.sorted { $0.rawValue < $1.rawValue }
         // 找到所有的对
         let pos = findPairPos(sortedCards)
         // 找不到对，无法胡牌
@@ -56,7 +56,7 @@ class Win {
     static func findPairPos(_ sortedCards: [Card]) -> [Int] {
         var pos: [Int] = []
         sortedCards.enumerated().forEach { (index, card) in
-            if card == sortedCards[index + 1] {
+            if index < sortedCards.count - 1 ,card == sortedCards[index + 1] {
                 pos.append(index)
             }
         }
@@ -97,22 +97,21 @@ class Win {
         return false
     }
 
-    // FindAndRemoveSequence 从已排序的[]int中移除排头的顺子
+    // FindAndRemoveSequence 从已排序的[]int中移除所有的顺子
     static func findAndRemoveSequence(_ sortedCards: inout [Card]) -> Bool {
-        let v = sortedCards
+        guard sortedCards.count >= 3 else { return false }
         var tmp: [Card] = []
+        let v = sortedCards
         var hasPreSequence: Bool = false
-        sortedCards.enumerated().forEach { (index,card) in
-            if card == v[index-1] {
-                tmp.append(card)
-            } else if card.rawValue == v[index-1].rawValue + 1 {
-                if card.rawValue - v[0].rawValue == 2 { //v[index+1] - v[0] == 2 ????
-                    tmp = Array(v[index+1..<v.count])
-                    sortedCards = tmp
-                    hasPreSequence = true
-                }
-            }
+        if v[1].rawValue == v[0].rawValue + 1, v[1].rawValue == v[2].rawValue - 1 {
+            sortedCards.removeSubrange(0...2)
+            hasPreSequence = true
+        } else {
+            tmp.append(v[0])
+            sortedCards.removeFirst()
         }
+        hasPreSequence = hasPreSequence || findAndRemoveSequence(&sortedCards)
+        sortedCards.append(contentsOf: tmp)
         return hasPreSequence
     }
 
