@@ -57,17 +57,17 @@ extension Card {
         }
         return result
     }
-
-    // IsSameType 检查两张牌是否同类
-    static func IsSameType(_ checkCard: Card, _ lackCard: Card) -> Bool {
-        return checkCard.rawValue / 10 == lackCard.rawValue / 10
-    }
     
     static func CardByValue(value: Int) -> Card {
         guard value < allCases.count else {
             return .MAHJONG_PLACEHOLDER
         }
         return Card.allCases[value]
+    }
+    
+    // IsSameType 检查两张牌是否同类
+    func IsSameType(_ lackCard: Card) -> Bool {
+        return rawValue / 10 == lackCard.rawValue / 10
     }
     
     // IsSuit 是否普通牌

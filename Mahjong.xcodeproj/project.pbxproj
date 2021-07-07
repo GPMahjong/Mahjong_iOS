@@ -27,6 +27,7 @@
 		73DE105A268B0E6D00DBBDE4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE1059268B0E6D00DBBDE4 /* User.swift */; };
 		73DE105C268B226C00DBBDE4 /* MessagePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE105B268B226C00DBBDE4 /* MessagePayload.swift */; };
 		73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE105F268B235200DBBDE4 /* MPCManager.swift */; };
+		73E8002826957FB900B2A585 /* MahjongSeletor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E8002726957FB900B2A585 /* MahjongSeletor.swift */; };
 		93BCCCFB268DF799006EC6B8 /* CreateRoomPlaceholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCFA268DF799006EC6B8 /* CreateRoomPlaceholdView.swift */; };
 		93BCCD00268F6703006EC6B8 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCFE268F6703006EC6B8 /* RoomViewController.swift */; };
 		93BCCD01268F6703006EC6B8 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BCCCFF268F6703006EC6B8 /* RoomViewController.xib */; };
@@ -82,6 +83,7 @@
 		73DE1059268B0E6D00DBBDE4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		73DE105B268B226C00DBBDE4 /* MessagePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePayload.swift; sourceTree = "<group>"; };
 		73DE105F268B235200DBBDE4 /* MPCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
+		73E8002726957FB900B2A585 /* MahjongSeletor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MahjongSeletor.swift; sourceTree = "<group>"; };
 		93BCCCFA268DF799006EC6B8 /* CreateRoomPlaceholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomPlaceholdView.swift; sourceTree = "<group>"; };
 		93BCCCFE268F6703006EC6B8 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		93BCCCFF268F6703006EC6B8 /* RoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
@@ -216,6 +218,14 @@
 			path = MPC;
 			sourceTree = "<group>";
 		};
+		73E8002626957F9E00B2A585 /* Selector */ = {
+			isa = PBXGroup;
+			children = (
+				73E8002726957FB900B2A585 /* MahjongSeletor.swift */,
+			);
+			path = Selector;
+			sourceTree = "<group>";
+		};
 		93BCCCF9268DF5F7006EC6B8 /* CreateRooms */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +249,7 @@
 		93BCCD04268FF7D5006EC6B8 /* MahjongCoreFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				73E8002626957F9E00B2A585 /* Selector */,
 				93BCCD12269018C5006EC6B8 /* Win */,
 				93BCCD0F2690189A006EC6B8 /* Ting */,
 				93BCCD0A2690032C006EC6B8 /* Wall */,
@@ -421,6 +432,7 @@
 				73BB747B2689BF7C00F059E8 /* ViewController.swift in Sources */,
 				73DE1052268AC91000DBBDE4 /* EasyRadarIndicatorView.swift in Sources */,
 				93BCCD14269018D3006EC6B8 /* Win.swift in Sources */,
+				73E8002826957FB900B2A585 /* MahjongSeletor.swift in Sources */,
 				93BCCD0E26900A74006EC6B8 /* Draw.swift in Sources */,
 				73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */,
 				93BCCD00268F6703006EC6B8 /* RoomViewController.swift in Sources */,
