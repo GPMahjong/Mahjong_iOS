@@ -29,6 +29,7 @@ class CreateRoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MPCManager.shareInstance.delegate = ConnectManagerDelegateWeakObject([self])
+        MPCManager.shareInstance.resume()
         setupRadarView()
         radarView.scan()
     }
@@ -72,13 +73,17 @@ class CreateRoomViewController: UIViewController {
     //MARK: - Action
     private func didClickOnUser(_ user: User) {
         print("\(#function) name = \(user.name)")
-        if !selectedUsers.compactMap({ $0.id }).contains(user.id) {
+        if !selectedUsers.compactMap({ $0.uuid }).contains(user.uuid) {
             selectedUsers.append(user)
         }
         updatePlaceholdView()
     }
     
     @IBAction func didClickOnCreateRoomButton(_ sender: Any) {
+        let messgae = MessagePayload.createRoomMessage()
+        messgae.participants = selectedUsers
+        MPCManager.shareInstance.sendMessageToAll(messgae)
+        
         let roomVC = RoomViewController(selectedUsers)
         navigationController?.pushViewController(roomVC, animated: true)
     }
@@ -100,5 +105,29 @@ extension CreateRoomViewController: MPCManagerDelegate {
     
     func didDisconnected() { }
     
-    func didReceive(message: MessagePayload) { }
+    func didReceive(message: BasicMessage) {
+        if let message = message as? MessagePayload {
+            handleMessagePayload(message)
+        } else if let action = message as? ActionPayload {
+            handleActionPayload(action)
+        } else if let mahjong = message as? MahjongPayload {
+            handleMahjongPayload(mahjong)
+        }
+    }
+    
+    func handleMessagePayload(_ message: MessagePayload) {
+        if message.type == .createRoom {
+            let roomVC = RoomViewController(selectedUsers)
+            navigationController?.pushViewController(roomVC, animated: true)
+        }
+    }
+    
+    func handleActionPayload(_ message: ActionPayload) {
+        
+    }
+    
+    func handleMahjongPayload(_ mahjong: MahjongPayload) {
+        
+    }
+    
 }

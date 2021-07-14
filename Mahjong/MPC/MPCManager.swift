@@ -9,7 +9,7 @@ import UIKit
 import MultipeerKit
 
 protocol MPCManagerDelegate: AnyObject {
-    func didReceive(message: MessagePayload)
+    func didReceive(message: BasicMessage)
     func didAdded(user: User)
     func didRemoved(user: User)
     func didConnected()
@@ -35,17 +35,21 @@ class MPCManager {
             self?.delegate?.didReceive(message: payload)
         }
         
+        t.receive(MahjongPayload.self) { [weak self] payload, peer in
+            self?.delegate?.didReceive(message: payload)
+        }
+        
+        t.receive(ActionPayload.self) { [weak self] payload, peer in
+            self?.delegate?.didReceive(message: payload)
+        }
+        
         t.peerAdded = didAdded(peer:)
         t.peerRemoved = didRemoved(peer:)
         return t
     }()
-
-    private lazy var dataSource: MultipeerDataSource = {
-        MultipeerDataSource(transceiver: transceiver)
-    }()
     
     init() {
-        dataSource.transceiver.resume()
+        transceiver.resume()
     }
     
     func didAdded(peer: Peer) {
@@ -61,23 +65,34 @@ class MPCManager {
     }
     
     func createUser(_ peer: Peer) -> User {
-        var user = User()
+        let user = User()
         user.name = peer.name
-        user.id = peer.id
+        user.peerId = peer.id
         return user
     }
 }
 
 extension MPCManager: MPCManagerProtocol {
     func sendMessage(_ message: BasicMessage, to user: User) {
-        if let peer = transceiver.availablePeers.first(where: { $0.id == user.id }) {
+        guard let peer = transceiver.availablePeers.first(where: { $0.id == user.peerId }) else { return }
+        if let message = message as? MessagePayload {
+            transceiver.send(message, to: [peer])
+        } else if let message = message as? ActionPayload {
+            transceiver.send(message, to: [peer])
+        } else if let message = message as? MahjongPayload {
             transceiver.send(message, to: [peer])
         }
     }
     
     func sendMessageToAll(_ message: BasicMessage) {
         guard !transceiver.availablePeers.isEmpty else { return }
-        transceiver.send(message, to: transceiver.availablePeers)
+        if let message = message as? MessagePayload {
+            transceiver.send(message, to: transceiver.availablePeers)
+        } else if let message = message as? ActionPayload {
+            transceiver.send(message, to: transceiver.availablePeers)
+        } else if let message = message as? MahjongPayload {
+            transceiver.send(message, to: transceiver.availablePeers)
+        }
     }
 }
 
@@ -115,7 +130,7 @@ class ConnectManagerDelegateWeakObject : MPCManagerDelegate {
         multiDelegate.removeAllObjects()
     }
     
-    func didReceive(message: MessagePayload) {
+    func didReceive(message: BasicMessage) {
         invoke { $0.didReceive(message: message)}
     }
     

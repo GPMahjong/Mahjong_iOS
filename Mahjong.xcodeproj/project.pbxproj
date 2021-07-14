@@ -38,6 +38,12 @@
 		93BCCD0E26900A74006EC6B8 /* Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD0D26900A74006EC6B8 /* Draw.swift */; };
 		93BCCD11269018A5006EC6B8 /* Ting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD10269018A5006EC6B8 /* Ting.swift */; };
 		93BCCD14269018D3006EC6B8 /* Win.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCD13269018D3006EC6B8 /* Win.swift */; };
+		93D98820269AEDAF005182F7 /* MahjongCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9881F269AEDAF005182F7 /* MahjongCenter.swift */; };
+		93D98823269AF7F2005182F7 /* DesktopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D98821269AF7F2005182F7 /* DesktopViewController.swift */; };
+		93D98824269AF7F2005182F7 /* DesktopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D98822269AF7F2005182F7 /* DesktopViewController.xib */; };
+		93D98827269B13EE005182F7 /* MahongCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D98825269B13EE005182F7 /* MahongCollectionViewCell.swift */; };
+		93D98828269B13EE005182F7 /* MahongCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D98826269B13EE005182F7 /* MahongCollectionViewCell.xib */; };
+		93D9882A269B1F53005182F7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D98829269B1F53005182F7 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +100,12 @@
 		93BCCD0D26900A74006EC6B8 /* Draw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draw.swift; sourceTree = "<group>"; };
 		93BCCD10269018A5006EC6B8 /* Ting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ting.swift; sourceTree = "<group>"; };
 		93BCCD13269018D3006EC6B8 /* Win.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Win.swift; sourceTree = "<group>"; };
+		93D9881F269AEDAF005182F7 /* MahjongCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MahjongCenter.swift; sourceTree = "<group>"; };
+		93D98821269AF7F2005182F7 /* DesktopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopViewController.swift; sourceTree = "<group>"; };
+		93D98822269AF7F2005182F7 /* DesktopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesktopViewController.xib; sourceTree = "<group>"; };
+		93D98825269B13EE005182F7 /* MahongCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MahongCollectionViewCell.swift; sourceTree = "<group>"; };
+		93D98826269B13EE005182F7 /* MahongCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MahongCollectionViewCell.xib; sourceTree = "<group>"; };
+		93D98829269B1F53005182F7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				731D1AB8269433EF005E1005 /* Array+Extension.swift */,
+				93D98829269B1F53005182F7 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -242,6 +255,10 @@
 				93BCCD02268F68D4006EC6B8 /* RoomManager.swift */,
 				93BCCCFE268F6703006EC6B8 /* RoomViewController.swift */,
 				93BCCCFF268F6703006EC6B8 /* RoomViewController.xib */,
+				93D98821269AF7F2005182F7 /* DesktopViewController.swift */,
+				93D98822269AF7F2005182F7 /* DesktopViewController.xib */,
+				93D98825269B13EE005182F7 /* MahongCollectionViewCell.swift */,
+				93D98826269B13EE005182F7 /* MahongCollectionViewCell.xib */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -254,6 +271,7 @@
 				93BCCD0F2690189A006EC6B8 /* Ting */,
 				93BCCD0A2690032C006EC6B8 /* Wall */,
 				93BCCD05268FF816006EC6B8 /* Card */,
+				93D9881F269AEDAF005182F7 /* MahjongCenter.swift */,
 			);
 			path = MahjongCoreFoundation;
 			sourceTree = "<group>";
@@ -403,8 +421,10 @@
 			files = (
 				73BB74832689BF7F00F059E8 /* LaunchScreen.storyboard in Resources */,
 				73BB74802689BF7F00F059E8 /* Assets.xcassets in Resources */,
+				93D98828269B13EE005182F7 /* MahongCollectionViewCell.xib in Resources */,
 				73BB747E2689BF7C00F059E8 /* Main.storyboard in Resources */,
 				93BCCD01268F6703006EC6B8 /* RoomViewController.xib in Resources */,
+				93D98824269AF7F2005182F7 /* DesktopViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,14 +455,18 @@
 				73E8002826957FB900B2A585 /* MahjongSeletor.swift in Sources */,
 				93BCCD0E26900A74006EC6B8 /* Draw.swift in Sources */,
 				73DE1060268B235200DBBDE4 /* MPCManager.swift in Sources */,
+				93D98820269AEDAF005182F7 /* MahjongCenter.swift in Sources */,
 				93BCCD00268F6703006EC6B8 /* RoomViewController.swift in Sources */,
 				73DE104E268AC0C700DBBDE4 /* EasyRadarView.swift in Sources */,
 				93BCCD0C26900376006EC6B8 /* Wall.swift in Sources */,
+				93D98827269B13EE005182F7 /* MahongCollectionViewCell.swift in Sources */,
 				93BCCCFB268DF799006EC6B8 /* CreateRoomPlaceholdView.swift in Sources */,
 				73DE1054268AC9B700DBBDE4 /* CreateRoomViewController.swift in Sources */,
 				731D1AB22692FD63005E1005 /* ActionPayload.swift in Sources */,
+				93D9882A269B1F53005182F7 /* UIView+Extension.swift in Sources */,
 				73DE105A268B0E6D00DBBDE4 /* User.swift in Sources */,
 				93BCCD09268FF89B006EC6B8 /* Card.swift in Sources */,
+				93D98823269AF7F2005182F7 /* DesktopViewController.swift in Sources */,
 				73BB74772689BF7C00F059E8 /* AppDelegate.swift in Sources */,
 				93BCCD07268FF828006EC6B8 /* Card+util.swift in Sources */,
 				73BB74792689BF7C00F059E8 /* SceneDelegate.swift in Sources */,

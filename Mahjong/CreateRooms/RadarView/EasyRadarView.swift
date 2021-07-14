@@ -141,7 +141,7 @@ extension EasyRadarView {
     
     //删除标注点
     public func removePointView(_ user: User? = nil) {
-        guard let user = user, let pointView = pointViewArr.first(where: { $0.user?.id == user.id }) else { return }
+        guard let user = user, let pointView = pointViewArr.first(where: { $0.user?.peerId == user.peerId }) else { return }
         pointView.removeFromSuperview()
     }
     

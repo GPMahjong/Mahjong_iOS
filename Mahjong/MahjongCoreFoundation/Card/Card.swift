@@ -9,15 +9,6 @@ import UIKit
 
 // 麻将牌面对应的数值定义
 enum Card: Int, CaseIterable, Codable {
-    enum CardType {
-        case CRAK       //万
-        case BAM        //条
-        case DOT        //筒
-        case DIRECTION  //东南西北
-        case SESSION    //春夏秋冬
-        case FLOWER     //梅兰竹菊
-        case OTHER      //发财、红中、白板
-    }
     case MAHJONG_PLACEHOLDER = 0 // 空，占位，无意义
     case MAHJONG_CRAK1            // 万(1 ~ 9)
     case MAHJONG_CRAK2

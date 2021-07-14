@@ -11,12 +11,7 @@ class Win {
 
     // CanWin 判断当前牌型是否是胡牌牌型(7对或4A+2B)
     // 需要根据手牌和明牌去判断是否胡牌
-    static func canWin(_ handCards: [Card], _ showCards: [Card], _ lack: Card) -> Bool {
-        let lackCardsInHandCards = handCards.filter { $0.IsSameType(lack) }
-        let lackCardsInShowCards = showCards.filter { $0.IsSameType(lack) }
-        // 没缺牌则直接返回失败
-        guard lackCardsInHandCards.isEmpty, lackCardsInShowCards.isEmpty else { return false }
-        
+    static func canWin(_ handCards: [Card], _ showCards: [Card]) -> Bool {
         let sortedCards = handCards.sorted { $0.rawValue < $1.rawValue }
         // 找到所有的对
         let pos = findPairPos(sortedCards)

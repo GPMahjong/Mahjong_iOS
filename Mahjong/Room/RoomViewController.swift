@@ -9,10 +9,20 @@ import UIKit
 
 class RoomViewController: UIViewController {
 
-    var participants: [Participant] = []
+    @IBOutlet weak var leadingPlaceholdView: UIView!
+    @IBOutlet weak var trailingPlaceholdView: UIView!
+    @IBOutlet weak var topPlaceholdView: UIView!
+    @IBOutlet weak var bottomPlaceholdView: UIView!
+    
+    var roomManager: RoomManager
+    
+    private var localUserVC = DesktopViewController()
+    private var firstUserVC = DesktopViewController()
+    private var secondUserVC = DesktopViewController()
+    private var thirdUserVC = DesktopViewController()
     
     init(_ selectedUser: [User]) {
-        participants = selectedUser.map({ Participant($0) })
+        roomManager = RoomManager(selectedUser)
         super.init(nibName: "RoomViewController", bundle: nil)
     }
     
@@ -22,11 +32,33 @@ class RoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MPCManager.shareInstance.delegate?.add(self)
-        MPCManager.shareInstance.send
+        
+        roomManager.setBookMaker()
+        let unlocalUsers = roomManager.participants.filter { !$0.isLocalUser }
+        for (index, p) in unlocalUsers.enumerated() {
+            if index == 0 {
+                firstUserVC.participant = p
+            } else if index == 1 {
+                secondUserVC.participant = p
+            } else if index == 2 {
+                thirdUserVC.participant = p
+            }
+        }
+        localUserVC.participant = roomManager.localParticipant
+        addSubviews()
+    }
+    
+    private func addSubviews() {
+        leadingPlaceholdView.addSubviewToFill(firstUserVC.view)
+        topPlaceholdView.addSubviewToFill(secondUserVC.view)
+        trailingPlaceholdView.addSubviewToFill(thirdUserVC.view)
+        bottomPlaceholdView.addSubviewToFill(localUserVC.view)
     }
 
-
+    @IBAction func didClickOnReadyButton(_ sender: Any) {
+        roomManager.isReady = true
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -37,28 +69,4 @@ class RoomViewController: UIViewController {
     }
     */
 
-}
-
-extension RoomViewController: MPCManagerDelegate {
-    func didReceive(message: MessagePayload) {
-        
-    }
-    
-    func didAdded(user: User) {
-        
-    }
-    
-    func didRemoved(user: User) {
-        
-    }
-    
-    func didConnected() {
-        
-    }
-    
-    func didDisconnected() {
-        
-    }
-    
-    
 }

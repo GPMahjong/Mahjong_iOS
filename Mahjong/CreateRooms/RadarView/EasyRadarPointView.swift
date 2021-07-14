@@ -12,7 +12,7 @@ open class EasyRadarPointView: UIView {
     public var user: User? {
         didSet {
             nameLabel.text = user?.name
-            icon?.image = user?.avatar
+//            icon?.image = user?.avatar
         }
     }
     

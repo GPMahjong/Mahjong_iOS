@@ -8,26 +8,33 @@
 import UIKit
 import MultipeerKit
 
-public struct User: Codable {
+public class User: Codable {
 //    var avatar: UIImage? = UIImage(named: "photo")
     var name: String = ""
     var uuid: String = ""
-    var isLocalUser: Bool = false
+    var peerId: String = ""
+    var isLocalUser: Bool {
+        return uuid == UIDevice.current.identifierForVendor?.uuidString
+    }
     
     static func localUser() -> User {
-        var user = User()
+        let user = User()
         user.name = UIDevice.current.name
         user.uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        user.isLocalUser = true
         return user
     }
 }
 
-public struct Participant: Codable {
+public class Participant {
     var user: User
+    var selector = MahjongSeletor()
     var isReady: Bool = false
     var isHomeowner: Bool = false
     var isBoolmarker: Bool = false
+    var isActive: Bool = false
+    var isLocalUser: Bool {
+        return user.isLocalUser
+    }
     init(_ user: User) {
         self.user = user
     }
